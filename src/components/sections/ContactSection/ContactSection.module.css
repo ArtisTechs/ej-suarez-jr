@@ -1,0 +1,52 @@
+.section { padding: 4rem 0; }
+.grid { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 1.1rem;
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 42%),
+    var(--color-surface);
+  box-shadow: 0 16px 24px -22px rgba(0, 0, 0, 0.55);
+}
+.card h3 { display: flex; align-items: center; gap: 0.5rem; margin-top: 0; }
+.icon { display: inline-flex; min-width: 38px; justify-content: center; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-accent); border: 1px solid var(--color-border); background: color-mix(in srgb, var(--color-accent) 14%, transparent); padding: 0.24rem 0.4rem; border-radius: 999px; }
+.lead { margin: 0 0 0.8rem; color: color-mix(in srgb, var(--color-text) 88%, var(--color-text-strong)); line-height: 1.55; }
+.emailLink { display: inline-flex; margin: 0 0 0.85rem; color: var(--color-accent); font-weight: 600; text-decoration: none; border-bottom: 1px dashed color-mix(in srgb, var(--color-accent) 50%, transparent); }
+.meta { display: grid; gap: 0.55rem; margin-bottom: 1rem; }
+.meta span { border: none; border-radius: 999px; padding: 0.38rem 0.7rem; width: fit-content; background: color-mix(in srgb, var(--color-surface-soft) 70%, transparent); font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.45rem; }
+.metaIcon { width: 16px; height: 16px; color: var(--color-accent); display: inline-flex; align-items: center; justify-content: center; }
+.metaIcon svg { width: 16px; height: 16px; fill: currentColor; display: block; }
+label { display: grid; gap: 0.4rem; margin-bottom: 0.75rem; font-size: 0.93rem; color: color-mix(in srgb, var(--color-text) 90%, var(--color-text-strong)); }
+input, textarea, button { font: inherit; }
+input, textarea {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0.68rem 0.75rem;
+  background: color-mix(in srgb, var(--color-bg-soft) 84%, transparent);
+  color: var(--color-text);
+  transition: border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
+}
+input:focus, textarea:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--color-accent) 72%, var(--color-border));
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 18%, transparent);
+  background: color-mix(in srgb, var(--color-bg-soft) 100%, transparent);
+}
+textarea { resize: none; min-height: 130px; }
+button {
+  border: 1px solid var(--color-accent);
+  background: linear-gradient(135deg, var(--color-accent), color-mix(in srgb, var(--color-accent) 70%, #ff5a66));
+  color: #fff;
+  border-radius: 12px;
+  padding: 0.7rem 0.95rem;
+  font-weight: 600;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+button:hover { transform: translateY(-1px); box-shadow: 0 12px 18px -14px rgba(225, 29, 47, 0.75); }
+.links { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+.links a { text-decoration: none; border: 1px solid var(--color-border); border-radius: 999px; padding: 0.36rem 0.7rem; background: color-mix(in srgb, var(--color-surface-soft) 70%, transparent); display: inline-flex; align-items: center; gap: 0.4rem; }
+.linkIcon { width: 15px; height: 15px; color: var(--color-accent); display: inline-flex; align-items: center; justify-content: center; }
+.linkIcon svg { width: 15px; height: 15px; fill: currentColor; display: block; }
+.success { color: #20b25d; font-weight: 600; margin-top: 0.7rem; }
+@media (max-width: 800px){ .grid { grid-template-columns: 1fr; } }

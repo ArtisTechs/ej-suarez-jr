@@ -1,0 +1,18 @@
+.section { padding: 4rem 0; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 1.05rem;
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 42%),
+    var(--color-surface-glass);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 24px -22px rgba(0, 0, 0, 0.55);
+}
+.icon { display: inline-flex; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--color-accent); border: 1px solid var(--color-border); background: color-mix(in srgb, var(--color-accent) 16%, transparent); padding: 0.24rem 0.48rem; border-radius: 999px; margin-bottom: 0.5rem; }
+.card h3 { margin: 0.1rem 0 0.5rem; }
+.intro { margin: 0; line-height: 1.6; color: color-mix(in srgb, var(--color-text) 90%, var(--color-text-strong)); }
+.card ul { margin: 0.35rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.55rem; }
+.card li { border: 1px solid var(--color-border); border-radius: 10px; padding: 0.52rem 0.65rem; background: color-mix(in srgb, var(--color-surface-soft) 72%, transparent); }
+@media (max-width: 800px){ .grid { grid-template-columns: 1fr; } }

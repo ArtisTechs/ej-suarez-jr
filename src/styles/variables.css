@@ -1,0 +1,26 @@
+:root {
+  --font-heading: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Manrope', 'Segoe UI', sans-serif;
+  --color-bg: #070707;
+  --color-bg-soft: #111111;
+  --color-surface: #121212;
+  --color-surface-soft: #181818;
+  --color-surface-glass: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-text: #f2f2f2;
+  --color-text-strong: #ffffff;
+  --color-accent: #e11d2f;
+  --color-accent-strong: #f43f4e;
+}
+:root[data-theme='light'] {
+  --color-bg: #f8f8f8;
+  --color-bg-soft: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f5f5f5;
+  --color-surface-glass: rgba(255, 255, 255, 0.8);
+  --color-border: rgba(0, 0, 0, 0.12);
+  --color-text: #1a1a1a;
+  --color-text-strong: #000000;
+  --color-accent: #cb1a2a;
+  --color-accent-strong: #dd2c3d;
+}
