@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { NAV_ITEMS } from '../../../utils/constants'
+import { getAppUrl } from '../../../utils/routing'
 import { Container } from '../../common/Container/Container'
 import { ThemeToggle } from '../../common/ThemeToggle/ThemeToggle'
 import type { ThemeMode } from '../../../types/portfolio.types'
@@ -39,7 +40,7 @@ export const Navbar = ({ theme, onToggleTheme, name }: NavbarProps) => {
       setActiveSection(current)
 
       if (window.location.hash !== `#${current}`) {
-        window.history.replaceState(null, '', `/#${current}`)
+        window.history.replaceState(null, '', `${getAppUrl('/')}#${current}`)
       }
     }
 
