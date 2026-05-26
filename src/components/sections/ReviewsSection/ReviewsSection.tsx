@@ -20,6 +20,7 @@ const ReviewCard = ({ review }: { review: ReviewItem }) => (
             </span>
           ))}
         </div>
+        {review.highlight ? <p className={styles.highlight}>{review.highlight}</p> : null}
       </div>
     </div>
     <p className={styles.quote}>"{review.quote}"</p>

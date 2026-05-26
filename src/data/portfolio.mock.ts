@@ -3,7 +3,6 @@ import smartFarmingImage from "../assets/projects/smart-farming.svg";
 import notiMedImage from "../assets/projects/notimed.svg";
 import riceDispenserImage from "../assets/projects/rice-dispenser.svg";
 import trashSegregationImage from "../assets/projects/trash-segregation.svg";
-import pawnerInCareImage from "../assets/projects/pawner-in-care.svg";
 
 export const portfolioMock: PortfolioData = {
   profile: {
@@ -157,11 +156,81 @@ export const portfolioMock: PortfolioData = {
         "Full-stack pet care management application for pet services, customer interactions, and operational workflows.",
       techStack: ["React Native", "Expo", "Node.js", "Express", "Firebase"],
       category: "Fullstack",
-      imageUrl: pawnerInCareImage,
+      imageUrl:
+        "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786488/705305068_1292208252903377_6755239905560811828_n_dv5xoo.jpg",
       screenshots: [
-        { src: pawnerInCareImage, mode: "mobile" },
-        { src: pawnerInCareImage, mode: "tablet" },
-        { src: pawnerInCareImage, mode: "web" },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786488/703632494_964815763127275_2819606121383038887_n_yvmx5i.jpg",
+          mode: "mobile",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786488/705305068_1292208252903377_6755239905560811828_n_dv5xoo.jpg",
+          mode: "mobile",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786488/706766633_816080794699935_4237893131267527862_n_cmilhg.jpg",
+          mode: "mobile",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786487/684716204_1545071353803319_8235493533723096998_n_k844ah.jpg",
+          mode: "mobile",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786487/703690736_2145006982990174_8842414492879249837_n_lunetw.jpg",
+          mode: "mobile",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786487/701436183_2383306415526099_4116551090432204481_n_rcf3d2.jpg",
+          mode: "mobile",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786486/705381068_1385194446756241_6434073108702234164_n_xgzxu2.jpg",
+          mode: "mobile",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786486/700943903_1571386731070437_7595689477787119951_n_wjh2gt.jpg",
+          mode: "mobile",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786487/704002611_1422645469550590_4933214933484530242_n_fbik9c.jpg",
+          mode: "mobile",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786481/Snipaste_2026-05-26_16-46-40_iesti3.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786481/Snipaste_2026-05-26_16-46-49_a5u3yl.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786481/Snipaste_2026-05-26_16-42-53_hzd07n.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786489/Snipaste_2026-05-26_16-53-37_ehkcsr.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786489/Snipaste_2026-05-26_16-53-23_prnkjq.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786489/Snipaste_2026-05-26_16-53-14_csru4w.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786490/Snipaste_2026-05-26_16-53-07_xdf9lw.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786490/Snipaste_2026-05-26_16-52-54_sh0nca.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779786491/Snipaste_2026-05-26_16-52-27_fdfp29.png",
+          mode: "web",
+        },
       ],
       viewModes: ["web", "tablet", "mobile"],
       demoUrl: "https://artistechs.github.io/pawtner-in-care-web",
@@ -317,38 +386,54 @@ export const portfolioMock: PortfolioData = {
   reviews: [
     {
       name: "Capstone Team Lead",
-      project: "Smart Farming Web Dashboard",
-      rating: 5,
-      quote:
-        "EJ turned our monitoring requirements into a clean dashboard that made device data easy to read and act on.",
-    },
-    {
-      name: "Mobile App Client",
       project: "NotiMed Reminder App",
       rating: 5,
       quote:
         "The app felt simple for users while still covering schedules, reminders, and the details we needed behind the scenes.",
     },
     {
-      name: "Operations Partner",
-      project: "Rice Dispenser System",
+      name: "Capstone Team Lead",
+      project: "Smart Rice Dispenser System",
       rating: 5,
       quote:
         "The prototype connected hardware controls with a practical interface, which helped us test the full workflow quickly.",
     },
     {
-      name: "Academic Coordinator",
+      name: "Capstone Team Lead",
       project: "Online Enrollment System",
       rating: 5,
       quote:
         "The enrollment flow was organized, reliable, and easy for staff to understand during review and testing.",
     },
     {
-      name: "Project Adviser",
+      name: "Capstone Team Lead",
       project: "Face Recognition Attendance App",
-      rating: 4,
+      rating: 5,
       quote:
         "A solid implementation that handled attendance records clearly and showed strong attention to the verification flow.",
+    },
+    {
+      name: "UI/UX Students",
+      project: "Pawner In Care",
+      rating: 5,
+      quote:
+        "EJ helped turn our pet care concept into a usable full-stack experience with clear screens and smooth user flows.",
+    },
+    {
+      name: "Capstone Team Lead",
+      project: "Mindful Mentor",
+      rating: 5,
+      highlight: "Won 2nd Place",
+      quote:
+        "The platform was polished across web and mobile, and the project earned 2nd place for its complete wellness experience.",
+    },
+    {
+      name: "Capstone Team Lead",
+      project: "IoT Trash Segregation Prototype",
+      rating: 5,
+      highlight: "Won Expo Event",
+      quote:
+        "The smart trash prototype performed well during the expo event and clearly showed how sensor-based sorting could work.",
     },
   ],
 };

@@ -57,6 +57,7 @@ export interface ReviewItem {
   name: string
   project: string
   rating: number
+  highlight?: string
   quote: string
 }
 

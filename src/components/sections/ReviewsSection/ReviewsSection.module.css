@@ -134,6 +134,20 @@
   line-height: 1;
 }
 
+.highlight {
+  width: fit-content;
+  margin: 0.55rem 0 0;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 46%, var(--color-border));
+  border-radius: 999px;
+  padding: 0.32rem 0.62rem;
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  color: var(--color-text-strong);
+  font-size: 0.74rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .star,
 .starActive {
   color: color-mix(in srgb, var(--color-text) 24%, transparent);
