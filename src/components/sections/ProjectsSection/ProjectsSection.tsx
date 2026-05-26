@@ -10,6 +10,7 @@ import styles from './ProjectsSection.module.css'
 const filters: Array<'All' | ProjectCategory> = ['All', 'Fullstack', 'Frontend', 'Web', 'Mobile', 'Backend', 'IoT']
 const projectIcon: Record<ProjectCategory, string> = { Web: 'WEB', Mobile: 'APP', Backend: 'API', IoT: 'IOT', Frontend: 'UI', Fullstack: 'FULL' }
 const previewCountByMode: Record<ProjectScreenshot['mode'], number> = { web: 1, tablet: 2, mobile: 3 }
+const projectPreviewAutoScrollDelay = 5200
 const hasProjectLink = (url?: string) => Boolean(url && url !== '#')
 
 export const ProjectsSection = ({ projects }: { projects: ProjectItem[] }) => {
@@ -89,7 +90,7 @@ export const ProjectsSection = ({ projects }: { projects: ProjectItem[] }) => {
     const autoPlay = window.setInterval(() => {
       setSlideDirection(1)
       setActiveImageIndex((prev) => (prev + 1) % selectedImages.length)
-    }, 2600)
+    }, projectPreviewAutoScrollDelay)
 
     return () => window.clearInterval(autoPlay)
   }, [selectedProject, selectedImages.length])

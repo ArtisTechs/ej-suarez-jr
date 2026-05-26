@@ -10,47 +10,65 @@
   opacity: 0.78;
 }
 
-.marqueeShell {
+.marqueeFrame {
   --edge-space: max(1rem, calc((100vw - 1120px) / 2));
+  --marquee-gap: 1rem;
   position: relative;
   margin-top: 1.4rem;
-  padding-block: 0.3rem;
-  padding-inline: var(--edge-space);
   width: 100%;
-  overflow: hidden;
 }
 
-.marqueeShell::before,
-.marqueeShell::after {
+.marqueeShell {
+  position: relative;
+  padding-block: 1.15rem 1.8rem;
+  padding-inline: var(--edge-space);
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  touch-action: pan-x pan-y pinch-zoom;
+  -webkit-overflow-scrolling: touch;
+}
+
+.marqueeShell::-webkit-scrollbar {
+  display: none;
+}
+
+.marqueeFrame::before,
+.marqueeFrame::after {
   content: '';
   position: absolute;
   top: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 3;
   width: min(12vw, 150px);
   pointer-events: none;
 }
 
-.marqueeShell::before {
+.marqueeFrame::before {
   left: 0;
   background: linear-gradient(90deg, var(--color-bg), transparent);
 }
 
-.marqueeShell::after {
+.marqueeFrame::after {
   right: 0;
   background: linear-gradient(270deg, var(--color-bg), transparent);
 }
 
 .marqueeTrack {
   display: flex;
-  gap: 1rem;
+  gap: var(--marquee-gap);
   width: max-content;
   animation: reviewScroll 34s linear infinite;
 }
 
+.marqueeTrackPaused {
+  animation-play-state: paused;
+}
+
 .marqueeGroup {
   display: flex;
-  gap: 1rem;
+  gap: var(--marquee-gap);
 }
 
 .card {
@@ -170,7 +188,7 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(calc(-50% - 0.5rem));
+    transform: translateX(calc(-50% - (var(--marquee-gap) / 2)));
   }
 }
 
@@ -198,12 +216,8 @@
   }
 
   .marqueeTrack {
-    gap: 0.85rem;
+    --marquee-gap: 0.85rem;
     animation-duration: 42s;
-  }
-
-  .marqueeGroup {
-    gap: 0.85rem;
   }
 
   .card {

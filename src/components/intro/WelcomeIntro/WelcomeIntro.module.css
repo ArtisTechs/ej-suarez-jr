@@ -16,6 +16,39 @@
   padding: 1.25rem;
 }
 
+.skipButton {
+  position: fixed;
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(1rem, env(safe-area-inset-right));
+  z-index: 4;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.5rem 0.8rem;
+  background: rgba(10, 10, 12, 0.54);
+  color: #f6f6f6;
+  font: 700 0.74rem/1 "Space Mono", "IBM Plex Mono", "JetBrains Mono", "Consolas", "Menlo", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.skipButton:hover {
+  transform: translateY(-1px);
+  border-color: rgba(246, 246, 246, 0.44);
+  background: rgba(30, 30, 34, 0.68);
+}
+
+.skipButton:focus-visible {
+  outline: 2px solid rgba(225, 29, 47, 0.92);
+  outline-offset: 3px;
+}
+
 .word {
   margin: 0;
   text-align: center;
@@ -126,6 +159,17 @@
     0 0 6px rgba(214, 31, 62, 0.26),
     0 0 18px rgba(214, 31, 62, 0.18),
     0 0 32px rgba(214, 31, 62, 0.1);
+}
+
+:global(:root[data-theme='light']) .skipButton {
+  border-color: rgba(22, 22, 22, 0.16);
+  background: rgba(255, 255, 255, 0.62);
+  color: #161616;
+}
+
+:global(:root[data-theme='light']) .skipButton:hover {
+  border-color: rgba(22, 22, 22, 0.32);
+  background: rgba(255, 255, 255, 0.82);
 }
 
 :global(:root[data-theme='light']) .vignette {

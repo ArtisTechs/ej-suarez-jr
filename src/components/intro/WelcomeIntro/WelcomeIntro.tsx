@@ -65,6 +65,11 @@ export const WelcomeIntro = ({ name, onComplete }: WelcomeIntroProps) => {
     }
   }, [clearTimer])
 
+  const handleSkip = useCallback(() => {
+    clearTimer()
+    onComplete()
+  }, [clearTimer, onComplete])
+
   useEffect(() => {
     if (!isOutro) {
       return
@@ -93,6 +98,17 @@ export const WelcomeIntro = ({ name, onComplete }: WelcomeIntroProps) => {
       transition={{ duration: OUTRO_DURATION / 1000, ease: 'easeInOut' }}
     >
       <IntroBackground />
+
+      <motion.button
+        type='button'
+        className={styles.skipButton}
+        onClick={handleSkip}
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.28, delay: 0.35, ease: 'easeOut' }}
+      >
+        Skip
+      </motion.button>
 
       <div className={styles.centerWrap}>
         <AnimatePresence mode='wait'>
