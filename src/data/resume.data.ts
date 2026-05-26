@@ -45,6 +45,7 @@ export const resumeData: ResumeData = {
     { label: 'Email', value: 'suarezestanislaojose@gmail.com', href: 'mailto:suarezestanislaojose@gmail.com' },
     { label: 'Phone', value: '+63 951 168 2096', href: 'tel:+639511682096' },
     { label: 'Location', value: 'Philippines' },
+    { label: 'Portfolio', value: 'https://ej-suarez-jr.vercel.app/', href: 'https://ej-suarez-jr.vercel.app/' },
     { label: 'GitHub', value: 'https://github.com/ArtisTechs', href: 'https://github.com/ArtisTechs' },
     { label: 'LinkedIn', value: 'https://www.linkedin.com/in/ej-suarez-jr-015818258/', href: 'https://www.linkedin.com/in/ej-suarez-jr-015818258/' },
   ],

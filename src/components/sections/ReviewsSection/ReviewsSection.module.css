@@ -59,7 +59,7 @@
   display: flex;
   gap: var(--marquee-gap);
   width: max-content;
-  animation: reviewScroll 34s linear infinite;
+  animation: reviewScroll 58s linear infinite;
 }
 
 .marqueeTrackPaused {
@@ -217,7 +217,7 @@
 
   .marqueeTrack {
     --marquee-gap: 0.85rem;
-    animation-duration: 42s;
+    animation-duration: 68s;
   }
 
   .card {
