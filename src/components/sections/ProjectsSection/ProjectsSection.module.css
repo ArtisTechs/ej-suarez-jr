@@ -270,6 +270,11 @@
     linear-gradient(145deg, #0d111a, #1b2432);
 }
 
+.oneScreen .desktopFrame {
+  width: min(100%, 860px);
+  justify-self: center;
+}
+
 .tabletFrame {
   border-radius: 28px;
   background: linear-gradient(145deg, #0b1018, #1e2838);
@@ -300,6 +305,11 @@
   display: block;
   border: 1px solid rgba(255, 255, 255, 0.12);
   max-height: 250px;
+}
+
+.desktopFrame .modalImage {
+  aspect-ratio: 16 / 9;
+  max-height: none;
 }
 
 .phoneFrame .modalImage {

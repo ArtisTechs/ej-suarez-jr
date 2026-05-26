@@ -4,6 +4,7 @@ import { Button } from '../../common/Button/Button'
 import { Container } from '../../common/Container/Container'
 import type { ProfileInfo, SocialLink } from '../../../types/portfolio.types'
 import { SECTION_IDS } from '../../../utils/constants'
+import { getAppUrl } from '../../../utils/routing'
 import styles from './HeroSection.module.css'
 import heroImage from '../../../assets/profile.png'
 
@@ -56,7 +57,7 @@ export const HeroSection = ({ profile, links }: HeroSectionProps) => {
           </div>
           <div className={styles.actions}>
             <Button onClick={() => document.getElementById(SECTION_IDS.projects)?.scrollIntoView({ behavior: 'smooth' })}>View Projects</Button>
-            <Button variant='secondary' onClick={() => window.location.assign('/resume')}>View Resume</Button>
+            <Button variant='secondary' onClick={() => window.location.assign(getAppUrl('/resume'))}>View Resume</Button>
             <Button variant='secondary' onClick={() => document.getElementById(SECTION_IDS.contact)?.scrollIntoView({ behavior: 'smooth' })}>Contact Me</Button>
           </div>
           <div className={styles.socials}>{links.map((link) => <a key={link.label} href={link.href} target='_blank' rel='noopener noreferrer'>{link.label}</a>)}</div>

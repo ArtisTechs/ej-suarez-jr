@@ -5,11 +5,12 @@ import { useTheme } from './hooks/useTheme'
 import { LandingPage } from './pages/LandingPage/LandingPage'
 import { ResumePage } from './pages/ResumePage/ResumePage'
 import { portfolioMock } from './data/portfolio.mock'
+import { getAppPath } from './utils/routing'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
   const { isIntroComplete, completeIntro } = useSessionIntro()
-  const isResumePage = window.location.pathname === '/resume'
+  const isResumePage = getAppPath() === '/resume'
 
   if (isResumePage) {
     return <ResumePage />

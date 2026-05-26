@@ -29,7 +29,7 @@ export interface ExperienceItem {
   description: string
 }
 
-export type ProjectCategory = 'Web' | 'Mobile' | 'Backend' | 'IoT' | 'Frontend'
+export type ProjectCategory = 'Web' | 'Mobile' | 'Backend' | 'IoT' | 'Frontend' | 'Fullstack'
 export type ProjectViewMode = 'web' | 'tablet' | 'mobile'
 export interface ProjectScreenshot {
   src: string

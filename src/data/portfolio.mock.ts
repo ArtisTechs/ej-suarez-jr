@@ -2,9 +2,8 @@
 import smartFarmingImage from "../assets/projects/smart-farming.svg";
 import notiMedImage from "../assets/projects/notimed.svg";
 import riceDispenserImage from "../assets/projects/rice-dispenser.svg";
-import faceAttendanceImage from "../assets/projects/face-attendance.svg";
-import enrollmentImage from "../assets/projects/enrollment.svg";
 import trashSegregationImage from "../assets/projects/trash-segregation.svg";
+import pawnerInCareImage from "../assets/projects/pawner-in-care.svg";
 
 export const portfolioMock: PortfolioData = {
   profile: {
@@ -98,6 +97,10 @@ export const portfolioMock: PortfolioData = {
         "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779782386/Snipaste_2026-05-26_15-51-15_wos3yq.png",
       screenshots: [
         {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779782386/Snipaste_2026-05-26_15-51-15_wos3yq.png",
+          mode: "web",
+        },
+        {
           src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779782385/Snipaste_2026-05-26_15-55-00_g4li8f.png",
           mode: "web",
         },
@@ -124,15 +127,115 @@ export const portfolioMock: PortfolioData = {
         "A monitoring dashboard for crop environment data, device controls, and analytics.",
       techStack: ["Angular", "TypeScript", "Thingboard"],
       category: "Web",
-      imageUrl: smartFarmingImage,
+      imageUrl:
+        "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779783558/Snipaste_2026-05-26_16-13-45_wcobts.png",
       screenshots: [
-        { src: smartFarmingImage, mode: "web" },
-        { src: enrollmentImage, mode: "tablet" },
-        { src: faceAttendanceImage, mode: "mobile" },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779783557/Snipaste_2026-05-26_16-14-13_ymd4tc.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779783558/Snipaste_2026-05-26_16-14-22_gucxjf.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779783558/Snipaste_2026-05-26_16-14-32_eskffd.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779783558/Snipaste_2026-05-26_16-13-45_wcobts.png",
+          mode: "web",
+        },
       ],
       viewModes: ["web", "tablet", "mobile"],
       githubUrl: "#",
       demoUrl: "#",
+    },
+    {
+      title: "Pawner In Care",
+      description:
+        "Full-stack pet care management application for pet services, customer interactions, and operational workflows.",
+      techStack: ["React Native", "Expo", "Node.js", "Express", "Firebase"],
+      category: "Fullstack",
+      imageUrl: pawnerInCareImage,
+      screenshots: [
+        { src: pawnerInCareImage, mode: "mobile" },
+        { src: pawnerInCareImage, mode: "tablet" },
+        { src: pawnerInCareImage, mode: "web" },
+      ],
+      viewModes: ["web", "tablet", "mobile"],
+      demoUrl: "https://artistechs.github.io/pawtner-in-care-web",
+    },
+    {
+      title: "Pampanga Flower Shop",
+      description:
+        "Frontend flower shop concept for product showcases, bouquet customization, and modern online ordering flows.",
+      techStack: ["React", "TypeScript", "Vite", "CSS", "GitHub Pages"],
+      category: "Frontend",
+      imageUrl:
+        "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779785355/Snipaste_2026-05-26_16-47-21_ajthwu.png",
+      screenshots: [
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779785355/Snipaste_2026-05-26_16-47-21_ajthwu.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779785357/Snipaste_2026-05-26_16-47-37_zf7wtk.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779785357/Snipaste_2026-05-26_16-47-51_scn9qb.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779785357/Snipaste_2026-05-26_16-47-31_dbjnqi.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779785357/Snipaste_2026-05-26_16-47-37_zf7wtk.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779785356/Snipaste_2026-05-26_16-48-11_evmvzp.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779785356/Snipaste_2026-05-26_16-47-58_rry5vh.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779785356/Snipaste_2026-05-26_16-48-05_zfbz6v.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779785356/Snipaste_2026-05-26_16-48-33_iwyiti.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779785356/Snipaste_2026-05-26_16-48-45_jczm8e.png",
+          mode: "web",
+        },
+        {
+          src: "https://res.cloudinary.com/dn2ss9vr7/image/upload/v1779785355/Snipaste_2026-05-26_16-48-56_bceema.png",
+          mode: "web",
+        },
+      ],
+      viewModes: ["web", "tablet", "mobile"],
+      demoUrl: "https://artistechs.github.io/pampanga-flower-shop/",
+    },
+    {
+      title: "Mindful Mentor",
+      description:
+        "Full-stack mental wellness platform with React web and Expo mobile apps for accessible cross-device wellness tools.",
+      techStack: ["React", "React Native", "Expo", "TypeScript", "JavaScript"],
+      category: "Fullstack",
+      imageUrl: notiMedImage,
+      screenshots: [
+        { src: notiMedImage, mode: "web" },
+        { src: notiMedImage, mode: "tablet" },
+        { src: notiMedImage, mode: "mobile" },
+      ],
+      viewModes: ["web", "tablet", "mobile"],
     },
     {
       title: "NotiMed Reminder App",
@@ -151,50 +254,14 @@ export const portfolioMock: PortfolioData = {
       demoUrl: "#",
     },
     {
-      title: "Rice Dispenser System",
+      title: "Smart Rice Dispenser System",
       description:
         "IoT-enabled rice dispensing system with mobile/web control and refill alerts.",
       techStack: ["ESP32", "Arduino", "MQTT"],
       category: "IoT",
       imageUrl: riceDispenserImage,
-      screenshots: [
-        { src: riceDispenserImage, mode: "tablet" },
-        { src: trashSegregationImage, mode: "web" },
-        { src: notiMedImage, mode: "mobile" },
-      ],
-      viewModes: ["web", "tablet", "mobile"],
-      githubUrl: "#",
-      demoUrl: "#",
-    },
-    {
-      title: "Face Recognition Attendance App",
-      description:
-        "Attendance tool with face verification and exportable attendance records.",
-      techStack: ["Python", "OpenCV", "Flask"],
-      category: "Backend",
-      imageUrl: faceAttendanceImage,
-      screenshots: [
-        { src: faceAttendanceImage, mode: "web" },
-        { src: enrollmentImage, mode: "tablet" },
-        { src: smartFarmingImage, mode: "web" },
-      ],
-      viewModes: ["web", "tablet"],
-      githubUrl: "#",
-      demoUrl: "#",
-    },
-    {
-      title: "Online Enrollment System",
-      description:
-        "End-to-end enrollment workflow with role-based access and reporting.",
-      techStack: ["React", "Node.js", "MySQL"],
-      category: "Web",
-      imageUrl: enrollmentImage,
-      screenshots: [
-        { src: enrollmentImage, mode: "web" },
-        { src: smartFarmingImage, mode: "tablet" },
-        { src: faceAttendanceImage, mode: "web" },
-      ],
-      viewModes: ["web", "tablet"],
+      screenshots: [],
+      viewModes: ["web"],
       githubUrl: "#",
       demoUrl: "#",
     },

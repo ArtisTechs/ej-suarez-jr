@@ -95,9 +95,9 @@ export const resumeData: ResumeData = {
       title: 'Pawner In Care Pet Care Management App',
       techStack: 'React Native, Expo, Node.js, Express, Firebase, TypeScript, JavaScript, Android',
       bullets: [
-        'Built a full-stack pet care app for services, customer interactions, bookings, and operations.',
-        'Handled UI, API integration, database work, business logic, Android behavior, and deployment preparation.',
-        'Delivered maintainable workflows aligned with client requirements and real-world service management.',
+        'Built a full-stack pet care management application for pet-related services, customer interactions, and operational workflows.',
+        'Handled frontend and backend development, system architecture, responsive UI, API integration, database handling, and deployment preparation.',
+        'Delivered a maintainable, scalable platform aligned with client requirements, usability expectations, and target deadlines.',
       ],
     },
   ],

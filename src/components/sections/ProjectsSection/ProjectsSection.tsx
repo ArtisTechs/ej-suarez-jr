@@ -7,8 +7,8 @@ import type { ProjectCategory, ProjectItem, ProjectScreenshot } from '../../../t
 import { SECTION_IDS } from '../../../utils/constants'
 import styles from './ProjectsSection.module.css'
 
-const filters: Array<'All' | ProjectCategory> = ['All', 'Frontend', 'Web', 'Mobile', 'Backend', 'IoT']
-const projectIcon: Record<ProjectCategory, string> = { Web: 'WEB', Mobile: 'APP', Backend: 'API', IoT: 'IOT', Frontend: 'UI' }
+const filters: Array<'All' | ProjectCategory> = ['All', 'Fullstack', 'Frontend', 'Web', 'Mobile', 'Backend', 'IoT']
+const projectIcon: Record<ProjectCategory, string> = { Web: 'WEB', Mobile: 'APP', Backend: 'API', IoT: 'IOT', Frontend: 'UI', Fullstack: 'FULL' }
 const previewCountByMode: Record<ProjectScreenshot['mode'], number> = { web: 1, tablet: 2, mobile: 3 }
 const hasProjectLink = (url?: string) => Boolean(url && url !== '#')
 
@@ -109,11 +109,16 @@ export const ProjectsSection = ({ projects }: { projects: ProjectItem[] }) => {
   }
 
   const activeImageMode = selectedImages[activeImageIndex]?.mode ?? 'web'
-  const visibleCount = Math.min(previewCountByMode[activeImageMode], selectedImages.length)
-  const visibleImages = Array.from(
-    { length: visibleCount },
-    (_, offset) => selectedImages[(activeImageIndex + offset) % selectedImages.length],
+  const activeModeImages = selectedImages.filter((shot) => shot.mode === activeImageMode)
+  const activeModeImageIndex = Math.max(
+    0,
+    activeModeImages.findIndex((shot) => shot === selectedImages[activeImageIndex]),
   )
+  const visibleImages = activeModeImages.slice(
+    activeModeImageIndex,
+    activeModeImageIndex + previewCountByMode[activeImageMode],
+  )
+  const visibleCount = visibleImages.length
   const previewCountClass = visibleCount === 1 ? styles.oneScreen : visibleCount === 2 ? styles.twoScreens : styles.threeScreens
 
   return (

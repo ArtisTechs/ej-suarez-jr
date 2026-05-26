@@ -4,6 +4,7 @@ import { ResumeHeader } from '../../components/resume/ResumeHeader'
 import { ResumeSection } from '../../components/resume/ResumeSection'
 import { SkillsGroup } from '../../components/resume/SkillsGroup'
 import { resumeData } from '../../data/resume.data'
+import { getAppUrl } from '../../utils/routing'
 import styles from './ResumePage.module.css'
 
 const downloadResume = () => {
@@ -13,7 +14,7 @@ const downloadResume = () => {
 export const ResumePage = () => (
   <main className={styles.resumePage}>
     <header className={styles.toolbar}>
-      <a className={styles.toolbarButton} href='/'>Return Home</a>
+      <a className={styles.toolbarButton} href={getAppUrl('/')}>Return Home</a>
       <button className={styles.toolbarButton} type='button' onClick={downloadResume}>Download Resume</button>
     </header>
 
