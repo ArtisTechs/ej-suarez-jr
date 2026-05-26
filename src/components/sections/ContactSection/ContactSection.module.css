@@ -44,9 +44,64 @@ button {
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 button:hover { transform: translateY(-1px); box-shadow: 0 12px 18px -14px rgba(225, 29, 47, 0.75); }
+button:disabled { opacity: 0.72; cursor: not-allowed; transform: none; box-shadow: none; }
+.sendButton {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 70%, #fff);
+  background:
+    linear-gradient(140deg, color-mix(in srgb, var(--color-accent) 84%, #ff5a66), color-mix(in srgb, var(--color-accent) 60%, #ff7a84) 46%, color-mix(in srgb, var(--color-accent) 74%, #ff4456));
+  box-shadow:
+    0 14px 26px -16px color-mix(in srgb, var(--color-accent) 80%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #fff 35%, transparent);
+  isolation: isolate;
+}
+.sendButton::before {
+  content: '';
+  position: absolute;
+  top: -140%;
+  left: -22%;
+  width: 30%;
+  height: 380%;
+  background: linear-gradient(to right, transparent, color-mix(in srgb, #fff 58%, transparent), transparent);
+  transform: rotate(24deg) translateX(-210%);
+  transition: transform 700ms cubic-bezier(0.2, 0.6, 0.2, 1);
+  pointer-events: none;
+}
+.sendButton:hover::before { transform: rotate(24deg) translateX(520%); }
+.sendButton:disabled::before { transform: rotate(24deg) translateX(160%); transition-duration: 420ms; }
+.sendButton:disabled {
+  opacity: 1;
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--color-accent) 22%, transparent),
+    0 0 28px -10px color-mix(in srgb, var(--color-accent) 90%, transparent);
+  animation: sendGlow 1.15s ease-in-out infinite;
+}
+.buttonContent { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-width: 136px; }
+.spinner {
+  width: 15px;
+  height: 15px;
+  border-radius: 999px;
+  border: 2px solid color-mix(in srgb, #fff 35%, transparent);
+  border-top-color: #fff;
+  border-right-color: color-mix(in srgb, #fff 90%, transparent);
+  box-shadow: 0 0 14px -4px color-mix(in srgb, #fff 95%, transparent);
+  animation: spin 620ms linear infinite;
+}
+.sendingText { animation: pulse 1s ease-in-out infinite; }
 .links { display: flex; gap: 0.65rem; flex-wrap: wrap; }
 .links a { text-decoration: none; border: 1px solid var(--color-border); border-radius: 999px; padding: 0.36rem 0.7rem; background: color-mix(in srgb, var(--color-surface-soft) 70%, transparent); display: inline-flex; align-items: center; gap: 0.4rem; }
 .linkIcon { width: 15px; height: 15px; color: var(--color-accent); display: inline-flex; align-items: center; justify-content: center; }
 .linkIcon svg { width: 15px; height: 15px; fill: currentColor; display: block; }
 .success { color: #20b25d; font-weight: 600; margin-top: 0.7rem; }
+.error { color: #d64545; font-weight: 600; margin-top: 0.7rem; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes sendGlow {
+  0%, 100% { box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 22%, transparent), 0 0 28px -10px color-mix(in srgb, var(--color-accent) 90%, transparent); }
+  50% { box-shadow: 0 0 0 2px color-mix(in srgb, #fff 22%, transparent), 0 0 34px -8px color-mix(in srgb, var(--color-accent) 95%, transparent); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.62; }
+}
 @media (max-width: 800px){ .grid { grid-template-columns: 1fr; } }

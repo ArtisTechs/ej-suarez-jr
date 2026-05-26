@@ -13,7 +13,7 @@ export const Footer = ({ name, links }: FooterProps) => (
       <p>{name} | Building practical software for people and systems.</p>
       <div className={styles.links}>
         {links.map((link) => (
-          <a key={link.label} href={link.href} aria-label={link.label} title={link.label}>
+          <a key={link.label} href={link.href} target='_blank' rel='noopener noreferrer' aria-label={link.label} title={link.label}>
             <span className={styles.icon} aria-hidden='true'>
               {link.label === 'GitHub' && (
                 <svg viewBox='0 0 24 24' focusable='false'>

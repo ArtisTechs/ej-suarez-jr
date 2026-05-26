@@ -1,0 +1,133 @@
+.resumePage {
+  min-height: 100svh;
+  width: 100vw;
+  overflow-x: auto;
+  padding: 24px 0 48px;
+  background: color-mix(in srgb, var(--color-bg) 72%, #ffffff);
+  color: #111111;
+  font-family: Inter, Roboto, 'Source Sans Pro', Arial, sans-serif;
+}
+
+.toolbar {
+  width: 210mm;
+  margin: 0 auto 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.toolbarButton {
+  border: 1px solid rgba(17, 24, 39, 0.18);
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, #ffffff 0%, #f1f3f5 100%);
+  color: #101418;
+  font: 800 13px Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(17, 24, 39, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.toolbarButton:hover,
+.toolbarButton:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(17, 24, 39, 0.72);
+  background: linear-gradient(180deg, #1f2937 0%, #0f172a 100%);
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(17, 24, 39, 0.3);
+}
+
+.toolbarButton:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.sheet {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 15mm 17mm;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+  color: #111111;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.resumePage :global(section) {
+  background: #ffffff;
+}
+
+.skillList {
+  display: block;
+}
+
+.educationItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.educationItem h3 {
+  margin: 0;
+  color: #111111;
+  font: 800 10.8px Inter, Roboto, 'Source Sans Pro', Arial, sans-serif;
+}
+
+.educationItem p,
+.educationItem span {
+  margin: 1px 0 0;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.educationItem span {
+  flex: 0 0 auto;
+  font-weight: 800;
+  text-align: right;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  html,
+  body,
+  #root {
+    width: 210mm;
+    min-height: 297mm;
+    background: #ffffff;
+  }
+
+  body::before,
+  body::after,
+  .toolbar {
+    display: none;
+  }
+
+  .resumePage {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 0;
+    overflow: visible;
+    background: #ffffff;
+  }
+
+  .sheet {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    padding: 15mm 17mm;
+    box-shadow: none;
+  }
+}

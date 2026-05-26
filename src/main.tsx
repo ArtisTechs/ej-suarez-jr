@@ -6,8 +6,9 @@ import App from './App.tsx'
 const normalizeInitialPath = () => {
   const { pathname, search, hash } = window.location
 
-  // This app uses section hashes on a single root route only.
-  if (pathname !== '/') {
+  const supportedPaths = ['/', '/resume']
+
+  if (!supportedPaths.includes(pathname)) {
     window.history.replaceState(null, '', `/${search}${hash}`)
   }
 }

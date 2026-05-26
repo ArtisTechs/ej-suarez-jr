@@ -5,6 +5,7 @@ export const SECTION_IDS = {
   experience: 'experience',
   projects: 'projects',
   services: 'services',
+  reviews: 'reviews',
   contact: 'contact',
 } as const
 
@@ -15,8 +16,8 @@ export const NAV_ITEMS = [
   { label: 'Experience', href: `#${SECTION_IDS.experience}` },
   { label: 'Projects', href: `#${SECTION_IDS.projects}` },
   { label: 'Services', href: `#${SECTION_IDS.services}` },
+  { label: 'Reviews', href: `#${SECTION_IDS.reviews}` },
   { label: 'Contact', href: `#${SECTION_IDS.contact}` },
 ]
 
 export const THEME_STORAGE_KEY = 'portfolio-theme'
-export const INTRO_SESSION_KEY = 'portfolio-intro-complete'

@@ -13,7 +13,7 @@ export const AboutSection = ({ profile }: { profile: ProfileInfo }) => (
         <motion.article className={`${styles.card} ${styles.introCard}`} variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }}>
           <span className={styles.icon}>DEV</span>
           <h3>Who I Am</h3>
-          <p className={styles.intro}>{profile.intro}</p>
+          <p className={styles.intro}>{profile.about}</p>
         </motion.article>
 
         <motion.article className={`${styles.card} ${styles.focusCard}`} variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }}>

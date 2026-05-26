@@ -1,4 +1,4 @@
-export type ThemeMode = 'dark' | 'light'
+﻿export type ThemeMode = 'dark' | 'light'
 
 export interface SocialLink {
   label: string
@@ -9,6 +9,7 @@ export interface ProfileInfo {
   name: string
   headline: string
   intro: string
+  about: string
   email: string
   mobile: string
   location: string
@@ -28,7 +29,12 @@ export interface ExperienceItem {
   description: string
 }
 
-export type ProjectCategory = 'Web' | 'Mobile' | 'Backend' | 'IoT'
+export type ProjectCategory = 'Web' | 'Mobile' | 'Backend' | 'IoT' | 'Frontend'
+export type ProjectViewMode = 'web' | 'tablet' | 'mobile'
+export interface ProjectScreenshot {
+  src: string
+  mode: ProjectViewMode
+}
 
 export interface ProjectItem {
   title: string
@@ -36,13 +42,22 @@ export interface ProjectItem {
   techStack: string[]
   category: ProjectCategory
   imageUrl: string
-  githubUrl: string
-  demoUrl: string
+  screenshots?: Array<string | ProjectScreenshot>
+  viewModes?: ProjectViewMode[]
+  githubUrl?: string
+  demoUrl?: string
 }
 
 export interface ServiceItem {
   title: string
   description: string
+}
+
+export interface ReviewItem {
+  name: string
+  project: string
+  rating: number
+  quote: string
 }
 
 export interface PortfolioData {
@@ -52,4 +67,6 @@ export interface PortfolioData {
   experience: ExperienceItem[]
   projects: ProjectItem[]
   services: ServiceItem[]
+  reviews: ReviewItem[]
 }
+

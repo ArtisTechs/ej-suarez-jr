@@ -1,18 +1,24 @@
 import { AnimatePresence } from 'framer-motion'
-import { GreetingIntro } from './components/intro/GreetingIntro/GreetingIntro'
+import { WelcomeIntro } from './components/intro/WelcomeIntro/WelcomeIntro'
 import { useSessionIntro } from './hooks/useSessionIntro'
 import { useTheme } from './hooks/useTheme'
 import { LandingPage } from './pages/LandingPage/LandingPage'
+import { ResumePage } from './pages/ResumePage/ResumePage'
 import { portfolioMock } from './data/portfolio.mock'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
   const { isIntroComplete, completeIntro } = useSessionIntro()
+  const isResumePage = window.location.pathname === '/resume'
+
+  if (isResumePage) {
+    return <ResumePage />
+  }
 
   return (
     <AnimatePresence mode='wait'>
       {!isIntroComplete ? (
-        <GreetingIntro key='intro' name={portfolioMock.profile.name} onComplete={completeIntro} />
+        <WelcomeIntro key='intro' name={portfolioMock.profile.name} onComplete={completeIntro} />
       ) : (
         <LandingPage key='landing' theme={theme} onToggleTheme={toggleTheme} />
       )}

@@ -5,6 +5,7 @@ import { ContactSection } from '../../components/sections/ContactSection/Contact
 import { ExperienceSection } from '../../components/sections/ExperienceSection/ExperienceSection'
 import { HeroSection } from '../../components/sections/HeroSection/HeroSection'
 import { ProjectsSection } from '../../components/sections/ProjectsSection/ProjectsSection'
+import { ReviewsSection } from '../../components/sections/ReviewsSection/ReviewsSection'
 import { ServicesSection } from '../../components/sections/ServicesSection/ServicesSection'
 import { SkillsSection } from '../../components/sections/SkillsSection/SkillsSection'
 import { portfolioMock } from '../../data/portfolio.mock'
@@ -16,7 +17,7 @@ interface LandingPageProps {
 }
 
 export const LandingPage = ({ theme, onToggleTheme }: LandingPageProps) => {
-  const { profile, socialLinks, skills, experience, projects, services } = portfolioMock
+  const { profile, socialLinks, skills, experience, projects, services, reviews } = portfolioMock
 
   return (
     <>
@@ -28,6 +29,7 @@ export const LandingPage = ({ theme, onToggleTheme }: LandingPageProps) => {
         <ExperienceSection experience={experience} />
         <ProjectsSection projects={projects} />
         <ServicesSection services={services} />
+        <ReviewsSection reviews={reviews} />
         <ContactSection profile={profile} links={socialLinks} />
       </main>
       <Footer name={profile.name} links={socialLinks} />

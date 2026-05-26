@@ -44,11 +44,22 @@ export const HeroSection = ({ profile, links }: HeroSectionProps) => {
             </AnimatePresence>
           </div>
           <p className={styles.introText}>{profile.intro}</p>
+          <div className={styles.stats} aria-label='Portfolio highlights'>
+            <div className={styles.statCard}>
+              <strong>20+</strong>
+              <span>Successful Projects</span>
+            </div>
+            <div className={styles.statCard}>
+              <strong>35</strong>
+              <span>GitHub Repositories</span>
+            </div>
+          </div>
           <div className={styles.actions}>
             <Button onClick={() => document.getElementById(SECTION_IDS.projects)?.scrollIntoView({ behavior: 'smooth' })}>View Projects</Button>
+            <Button variant='secondary' onClick={() => window.location.assign('/resume')}>View Resume</Button>
             <Button variant='secondary' onClick={() => document.getElementById(SECTION_IDS.contact)?.scrollIntoView({ behavior: 'smooth' })}>Contact Me</Button>
           </div>
-          <div className={styles.socials}>{links.map((link) => <a key={link.label} href={link.href}>{link.label}</a>)}</div>
+          <div className={styles.socials}>{links.map((link) => <a key={link.label} href={link.href} target='_blank' rel='noopener noreferrer'>{link.label}</a>)}</div>
         </motion.div>
       </Container>
     </section>

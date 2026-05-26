@@ -1,0 +1,129 @@
+.resumeHeader {
+  text-align: center;
+  border-bottom: 1.25px solid #1f2937;
+  padding-bottom: 10px;
+  margin-bottom: 11px;
+}
+
+.resumeHeader h1 {
+  margin: 0;
+  color: #111111;
+  font: 800 29px Inter, Roboto, 'Source Sans Pro', Arial, sans-serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.resumeHeader p {
+  margin: 5px 0 8px;
+  color: #2f3a46;
+  font: 700 12px Inter, Roboto, 'Source Sans Pro', Arial, sans-serif;
+}
+
+.contacts {
+  display: block;
+  color: #111111;
+  font-style: normal;
+  font-size: 9.5px;
+  line-height: 1.45;
+}
+
+.contacts span {
+  display: inline;
+}
+
+.contacts span:not(:last-child)::after {
+  content: ' | ';
+  color: #6b7280;
+}
+
+.contacts a {
+  color: #111111;
+  text-decoration: none;
+}
+
+.section {
+  margin-top: 9px;
+  background: #ffffff;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.section.section {
+  background: #ffffff;
+}
+
+.section h2 {
+  margin: 0 0 5px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #6b7280;
+  color: #111111;
+  font: 800 11.5px Inter, Roboto, 'Source Sans Pro', Arial, sans-serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.section p {
+  margin: 0;
+  font-size: 10.25px;
+  line-height: 1.4;
+}
+
+.skillGroup {
+  margin: 0 0 3px;
+}
+
+.entry {
+  margin-top: 6px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.entryHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.entryHeader h3,
+.projectHeader h3 {
+  margin: 0;
+  color: #111111;
+  font: 800 10.8px Inter, Roboto, 'Source Sans Pro', Arial, sans-serif;
+}
+
+.entryHeader p,
+.projectHeader p {
+  margin: 1px 0 0;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.entryHeader span {
+  flex: 0 0 auto;
+  color: #111111;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: right;
+}
+
+.projectHeader {
+  display: block;
+}
+
+.projectHeader p {
+  color: #2f3a46;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.section ul {
+  margin: 3px 0 0 16px;
+  padding: 0;
+}
+
+.section li {
+  margin: 1px 0;
+  font-size: 10px;
+  line-height: 1.34;
+}

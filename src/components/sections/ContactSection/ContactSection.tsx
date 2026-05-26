@@ -4,10 +4,15 @@ import { Container } from '../../common/Container/Container'
 import { SectionHeader } from '../../common/SectionHeader/SectionHeader'
 import type { ProfileInfo, SocialLink } from '../../../types/portfolio.types'
 import { SECTION_IDS } from '../../../utils/constants'
+import { sendContactEmail } from '../../../services/email/email.service'
 import styles from './ContactSection.module.css'
 
+const CONTACT_DAILY_LIMIT_KEY = 'contact-last-sent-date'
+
 export const ContactSection = ({ profile, links }: { profile: ProfileInfo; links: SocialLink[] }) => {
-  const [submitted, setSubmitted] = useState(false)
+  const [isSending, setIsSending] = useState(false)
+  const [successMessage, setSuccessMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
   const socialIconByLabel: Record<string, ReactNode> = {
     GitHub: (
       <svg viewBox='0 0 24 24' focusable='false'>
@@ -24,6 +29,56 @@ export const ContactSection = ({ profile, links }: { profile: ProfileInfo; links
         <path d='M13.6 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.3-1.6 1.6-1.6h1.7V4.6c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8.4V14h2.3v8h2.9z' />
       </svg>
     ),
+  }
+
+  const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  const todayKey = new Date().toISOString().slice(0, 10)
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setSuccessMessage('')
+    setErrorMessage('')
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const name = String(formData.get('name') ?? '').trim()
+    const email = String(formData.get('email') ?? '').trim()
+    const message = String(formData.get('message') ?? '').trim()
+
+    if (!name || !email || !message) {
+      setErrorMessage('Please complete all required fields before sending.')
+      return
+    }
+
+    if (!isValidEmail(email)) {
+      setErrorMessage('Please enter a valid email address.')
+      return
+    }
+
+    const lastSentDate = window.localStorage.getItem(CONTACT_DAILY_LIMIT_KEY)
+    if (lastSentDate === todayKey) {
+      setErrorMessage('You can send only one message per day. Please try again tomorrow.')
+      return
+    }
+
+    setIsSending(true)
+
+    try {
+      await sendContactEmail({
+        fromName: name,
+        fromEmail: email,
+        message,
+      })
+
+      window.localStorage.setItem(CONTACT_DAILY_LIMIT_KEY, todayKey)
+      setSuccessMessage('Message sent successfully. I will get back to you soon.')
+      form.reset()
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unable to send your message right now. Please try again.'
+      setErrorMessage(message)
+    } finally {
+      setIsSending(false)
+    }
   }
 
   return (
@@ -60,6 +115,8 @@ export const ContactSection = ({ profile, links }: { profile: ProfileInfo; links
                 <motion.a
                   key={link.label}
                   href={link.href}
+                  target='_blank'
+                  rel='noopener noreferrer'
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.6 }}
@@ -73,12 +130,18 @@ export const ContactSection = ({ profile, links }: { profile: ProfileInfo; links
               ))}
             </div>
           </motion.article>
-          <motion.form className={`${styles.card} ${styles.formCard}`} variants={{ hidden: { opacity: 0, y: 26 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }} onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }}>
+          <motion.form className={`${styles.card} ${styles.formCard}`} variants={{ hidden: { opacity: 0, y: 26 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }} onSubmit={handleSubmit}>
             <label>Name<input required name='name' /></label>
             <label>Email<input required type='email' name='email' /></label>
             <label>Message<textarea required name='message' rows={4} /></label>
-            <button type='submit'>Send Message</button>
-            {submitted && <p className={styles.success}>Message sent (mock). API integration ready.</p>}
+            <button type='submit' disabled={isSending} className={styles.sendButton}>
+              <span className={styles.buttonContent}>
+                {isSending && <span className={styles.spinner} aria-hidden='true' />}
+                <span className={isSending ? styles.sendingText : ''}>{isSending ? 'Sending message' : 'Send Message'}</span>
+              </span>
+            </button>
+            {successMessage && <p className={styles.success}>{successMessage}</p>}
+            {errorMessage && <p className={styles.error}>{errorMessage}</p>}
           </motion.form>
         </motion.div>
       </Container>

@@ -1,0 +1,165 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  min-height: 100svh;
+  background: #020202;
+  overflow: hidden;
+}
+
+.centerWrap {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: 1.25rem;
+}
+
+.word {
+  margin: 0;
+  text-align: center;
+  color: #f6f6f6;
+  text-transform: uppercase;
+  font-family: "Space Mono", "IBM Plex Mono", "JetBrains Mono", "Consolas", "Menlo", monospace;
+  font-weight: 700;
+  font-size: clamp(1rem, 3.35vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: clamp(0.08em, 0.24vw, 0.22em);
+  text-wrap: balance;
+  text-shadow:
+    0 0 8px rgba(196, 16, 44, 0.74),
+    0 0 24px rgba(176, 10, 34, 0.52),
+    0 0 46px rgba(112, 0, 20, 0.34);
+}
+
+.wordPrimary {
+  font-size: clamp(1.25rem, 4.2vw, 2.8rem);
+  letter-spacing: clamp(0.14em, 0.34vw, 0.28em);
+  margin-bottom: clamp(0.4rem, 1.1vw, 0.8rem);
+}
+
+.wordSecondary {
+  font-size: clamp(0.95rem, 3.1vw, 2rem);
+}
+
+.wordsGroup {
+  display: grid;
+  gap: clamp(0.45rem, 1.35vw, 0.95rem);
+  justify-items: center;
+  width: min(1100px, 100%);
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(115, 0, 22, 0.3), transparent 56%),
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.72) 92%);
+  pointer-events: none;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 1), transparent 82%);
+  opacity: 0.12;
+  animation: gridShift 8s linear infinite;
+  pointer-events: none;
+}
+
+.glowCore,
+.glowAmbient {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.glowCore {
+  width: min(64vw, 760px);
+  height: min(64vw, 760px);
+  background: radial-gradient(circle, rgba(215, 18, 47, 0.18) 0%, rgba(215, 18, 47, 0.03) 48%, transparent 76%);
+  filter: blur(10px);
+  animation: pulseGlow 2.2s ease-in-out infinite;
+}
+
+.glowAmbient {
+  width: min(84vw, 1020px);
+  height: min(84vw, 1020px);
+  background: radial-gradient(circle, rgba(255, 42, 72, 0.09) 0%, transparent 70%);
+  filter: blur(14px);
+  animation: pulseGlowAmbient 3.4s ease-in-out infinite;
+}
+
+@keyframes gridShift {
+  0% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -16px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.62; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.62; }
+}
+
+@keyframes pulseGlowAmbient {
+  0% { opacity: 0.44; }
+  50% { opacity: 0.66; }
+  100% { opacity: 0.44; }
+}
+
+:global(:root[data-theme='light']) .intro {
+  background: #f7f7f8;
+}
+
+:global(:root[data-theme='light']) .word {
+  color: #161616;
+  text-shadow:
+    0 0 6px rgba(214, 31, 62, 0.26),
+    0 0 18px rgba(214, 31, 62, 0.18),
+    0 0 32px rgba(214, 31, 62, 0.1);
+}
+
+:global(:root[data-theme='light']) .vignette {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(220, 36, 68, 0.12), transparent 56%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0), rgba(234, 234, 236, 0.78) 92%);
+}
+
+:global(:root[data-theme='light']) .grid {
+  background-image:
+    linear-gradient(rgba(24, 24, 24, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 24, 24, 0.09) 1px, transparent 1px);
+  opacity: 0.14;
+}
+
+:global(:root[data-theme='light']) .glowCore {
+  background: radial-gradient(circle, rgba(222, 35, 67, 0.18) 0%, rgba(222, 35, 67, 0.06) 48%, transparent 76%);
+}
+
+:global(:root[data-theme='light']) .glowAmbient {
+  background: radial-gradient(circle, rgba(236, 64, 96, 0.14) 0%, transparent 70%);
+}
+
+@media (max-width: 520px) {
+  .word {
+    letter-spacing: 0.08em;
+    font-size: clamp(0.88rem, 5vw, 1.2rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid,
+  .glowCore,
+  .glowAmbient {
+    animation: none !important;
+  }
+}
