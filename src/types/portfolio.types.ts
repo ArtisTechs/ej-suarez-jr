@@ -31,14 +31,18 @@ export interface ExperienceItem {
 
 export type ProjectCategory = 'Web' | 'Mobile' | 'Backend' | 'IoT' | 'Frontend' | 'Fullstack'
 export type ProjectViewMode = 'web' | 'tablet' | 'mobile'
+export type ProjectMediaType = 'image' | 'video'
 export interface ProjectScreenshot {
   src: string
   mode: ProjectViewMode
+  type?: ProjectMediaType
+  poster?: string
 }
 
 export interface ProjectItem {
   title: string
   description: string
+  descriptionBullets: string[]
   techStack: string[]
   category: ProjectCategory
   imageUrl: string

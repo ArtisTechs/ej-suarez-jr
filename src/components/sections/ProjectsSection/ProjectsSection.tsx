@@ -6,12 +6,15 @@ import { Badge } from '../../common/Badge/Badge'
 import type { ProjectCategory, ProjectItem, ProjectScreenshot } from '../../../types/portfolio.types'
 import { SECTION_IDS } from '../../../utils/constants'
 import styles from './ProjectsSection.module.css'
+import defaultProjectImage from '../../../assets/default-project-image.png'
 
 const filters: Array<'All' | ProjectCategory> = ['All', 'Fullstack', 'Frontend', 'Web', 'Mobile', 'Backend', 'IoT']
 const projectIcon: Record<ProjectCategory, string> = { Web: 'WEB', Mobile: 'APP', Backend: 'API', IoT: 'IOT', Frontend: 'UI', Fullstack: 'FULL' }
 const previewCountByMode: Record<ProjectScreenshot['mode'], number> = { web: 1, tablet: 2, mobile: 3 }
 const projectPreviewAutoScrollDelay = 5200
 const hasProjectLink = (url?: string) => Boolean(url && url !== '#')
+const isVideoSrc = (src: string) => /\.(mp4|webm|ogg|mov)$/i.test(src)
+const getProjectImage = (imageUrl?: string) => (imageUrl?.trim() ? imageUrl : defaultProjectImage)
 
 export const ProjectsSection = ({ projects }: { projects: ProjectItem[] }) => {
   const [active, setActive] = useState<(typeof filters)[number]>('All')
@@ -29,12 +32,16 @@ export const ProjectsSection = ({ projects }: { projects: ProjectItem[] }) => {
   const selectedImages: ProjectScreenshot[] = useMemo(() => {
     if (!selectedProject) return []
     if (!selectedProject.screenshots?.length) {
-      return [{ src: selectedProject.imageUrl, mode: selectedProject.category === 'Mobile' ? 'mobile' : 'web' }]
+      return [{ src: getProjectImage(selectedProject.imageUrl), mode: selectedProject.category === 'Mobile' ? 'mobile' : 'web', type: 'image' }]
     }
     return selectedProject.screenshots.map((shot) => (
       typeof shot === 'string'
-        ? { src: shot, mode: selectedProject.category === 'Mobile' ? 'mobile' : 'web' }
-        : shot
+        ? {
+            src: shot,
+            mode: selectedProject.category === 'Mobile' ? 'mobile' : 'web',
+            type: isVideoSrc(shot) ? 'video' : 'image',
+          }
+        : { ...shot, type: shot.type ?? (isVideoSrc(shot.src) ? 'video' : 'image') }
     ))
   }, [selectedProject])
 
@@ -84,8 +91,10 @@ export const ProjectsSection = ({ projects }: { projects: ProjectItem[] }) => {
     }
   }, [selectedProject, selectedImages.length, showNextImage, showPrevImage])
 
+  const activeShotType = selectedImages[activeImageIndex]?.type ?? 'image'
+
   useEffect(() => {
-    if (!selectedProject || selectedImages.length < 2) return
+    if (!selectedProject || selectedImages.length < 2 || activeShotType === 'video') return
 
     const autoPlay = window.setInterval(() => {
       setSlideDirection(1)
@@ -93,7 +102,7 @@ export const ProjectsSection = ({ projects }: { projects: ProjectItem[] }) => {
     }, projectPreviewAutoScrollDelay)
 
     return () => window.clearInterval(autoPlay)
-  }, [selectedProject, selectedImages.length])
+  }, [activeShotType, selectedProject, selectedImages.length])
 
   const openProjectModal = (project: ProjectItem) => {
     setSelectedProject(project)
@@ -162,7 +171,7 @@ export const ProjectsSection = ({ projects }: { projects: ProjectItem[] }) => {
               viewport={{ once: false, amount: 0.25 }}
               transition={{ duration: 0.45, delay: Math.min(index * 0.06, 0.24), ease: 'easeOut' }}
             >
-              <img className={styles.cover} src={project.imageUrl} alt={`${project.title} preview`} />
+              <img className={styles.cover} src={getProjectImage(project.imageUrl)} alt={`${project.title} preview`} />
               <div className={styles.body}>
                 <h3>
                   <span className={styles.icon}>{projectIcon[project.category]}</span>
@@ -216,7 +225,11 @@ export const ProjectsSection = ({ projects }: { projects: ProjectItem[] }) => {
                   <span className={styles.icon}>{projectIcon[selectedProject.category]}</span>
                   {selectedProject.title}
                 </h3>
-                <p>{selectedProject.description}</p>
+                <ul className={styles.descriptionList}>
+                  {selectedProject.descriptionBullets.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
                 <div className={styles.badges}>{selectedProject.techStack.map((tech) => <Badge key={tech}>{tech}</Badge>)}</div>
                 {hasProjectLink(selectedProject.githubUrl) || hasProjectLink(selectedProject.demoUrl) ? (
                   <div className={styles.links}>
@@ -288,8 +301,20 @@ export const ProjectsSection = ({ projects }: { projects: ProjectItem[] }) => {
                           animate={{ opacity: 1, x: 0, scale: 1 }}
                           transition={{ type: 'spring', stiffness: 280, damping: 30, delay: Math.min(index * 0.05, 0.12) }}
                         >
-                          <img className={styles.modalImage} src={shot.src} alt={`${selectedProject.title} ${shot.mode} screen ${index + 1}`} />
-                          <span className={styles.modeTag}>{shot.mode.toUpperCase()}</span>
+                          {shot.type === 'video' ? (
+                            <video
+                              className={styles.modalVideo}
+                              src={shot.src}
+                              poster={shot.poster}
+                              autoPlay
+                              muted
+                              controls
+                              playsInline
+                            />
+                          ) : (
+                            <img className={styles.modalImage} src={shot.src} alt={`${selectedProject.title} ${shot.mode} screen ${index + 1}`} />
+                          )}
+                          <span className={styles.modeTag}>{shot.mode.toUpperCase()} · {(shot.type ?? 'image').toUpperCase()}</span>
                         </motion.div>
                       ))}
                     </motion.div>

@@ -179,7 +179,12 @@
 .modalMedia { display: grid; gap: 0.9rem; }
 .modalHeader { margin: 0.2rem 0 1rem; }
 .modalHeader h3 { margin: 0 0 0.55rem; display: flex; align-items: center; gap: 0.5rem; }
-.modalHeader p { margin: 0; }
+.descriptionList {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+}
 .gallery { position: relative; }
 .gallery { touch-action: pan-x; }
 .gallery::after {
@@ -320,12 +325,30 @@
   object-fit: cover;
 }
 
+.modalVideo {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #000;
+}
+
 .tabletFrame .modalImage {
   aspect-ratio: 3 / 4;
   border-radius: 18px;
   max-height: 500px;
   width: 100%;
   object-fit: cover;
+}
+
+.phoneFrame .modalVideo {
+  border-radius: 24px;
+}
+
+.tabletFrame .modalVideo {
+  border-radius: 18px;
 }
 
 .modeTag {
